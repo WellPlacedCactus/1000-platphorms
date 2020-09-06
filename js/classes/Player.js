@@ -11,7 +11,7 @@ class Player extends Entity {
 
 		this.acc = 1;
 		this.dec = this.acc;
-		this.velMax = 40;
+		this.velMax = 15;
 	}
 
 	move() {
