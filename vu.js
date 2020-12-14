@@ -42,9 +42,9 @@ class Player extends Entity {
 		super(x, y, r, r, 'red');
 		this.velX = 0;
 		this.velY = 0;
-		this.velMax = 10;
+		this.velMax = 15;
 		this.velTerm = 30;
-		this.acc = 1;
+		this.acc = 2;
 		this.dec = this.acc * 2;
 		this.canJump = false;
 		this.jumpPower = 22;
@@ -57,7 +57,7 @@ class Player extends Entity {
 	input() {
 		if (keys[82]) {
 			this.x = 0;
-			this.y = 0;
+			this.y = -100;
 			this.velY = 0;
 			this.velX = 0;
 		}
@@ -143,7 +143,7 @@ window.onload = () => {
 
 	for (let y = 0; y < 1000; y++) {
 		entities.push(new Entity(
-			randi(0, canvas.width / 2),
+			randi(0, 500),
 			(y + 1) * gap,
 			randi(gap / 2, gap),
 			10,
@@ -175,10 +175,10 @@ const reviews = [
 	'"garbage engine -me"',
 ];
 const patchNotes = [
-	'patch 0.0.2 beta:',
+	'patch notes 0.0.2 beta:',
 	'-smoother collision',
 	'-smoother movement',
-	'-smooth brain',
+	'-smoother brain',
 	'-terminal velocity',
 	'-new platform generation alg'
 ];
@@ -201,7 +201,7 @@ function loop() {
 	});
 	c.textAlign = 'left';
 	patchNotes.forEach((f, i) => {
-		c.fillText(f, 500, gap * 998 + i * 25);
+		c.fillText(f, 700, gap * 998 + i * 25);
 	});
 	c.restore();
 	requestAnimationFrame(loop);
